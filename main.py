@@ -19,7 +19,7 @@ async def on_startup():
     await init_db()
 
 
-@app.get("/pokemons")
+@app.get("/v1/pokemons")
 async def pokemons(
     session: AsyncSession = Depends(get_session),
     pokemon_filter: Optional[
@@ -30,7 +30,7 @@ async def pokemons(
 
 
 # TODO: Find a way to move this endpoint in migration
-@app.post("/sync-pokemons")
+@app.post("/v1/sync-pokemons")
 async def add_pokemons(
     session: AsyncSession = Depends(get_session)
 ):

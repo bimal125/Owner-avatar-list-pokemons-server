@@ -26,7 +26,7 @@ Use this command to populate pokemons in database.
 
 ```bash
 curl -X 'POST' \
-  'http://localhost:8002/sync-pokemons' \
+  'http://localhost:8002/v1/sync-pokemons' \
   -H 'accept: application/json' \
   -d ''
 ```
