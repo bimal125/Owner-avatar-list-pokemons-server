@@ -1,0 +1,30 @@
+version: "3.4"
+
+services:
+  db:
+    image: postgres:13.1-alpine
+    volumes:
+      - pokemons-data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgrespwd}
+      - POSTGRES_DB=${POSTGRES_DB:-postgres}
+    env_file:
+      - .env
+
+  server:
+    build: ./
+    tty: true
+    command: sh /code/scripts/run_develop.sh
+    # command: uvicorn config.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./:/code
+    env_file:
+      - .env
+    ports:
+      - "8002:8000"
+    depends_on:
+      - db
+
+volumes:
+  pokemons-data:
