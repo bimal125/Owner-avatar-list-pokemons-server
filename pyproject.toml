@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pokemons"
+version = "0.1.0"
+description = "Serving list of pokemons"
+authors = ["pandeybi125@gmail.com"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
+sqlmodel = "^0.0.14"
+alembic = "^1.13.0"
+asyncpg = "^0.29.0"
+requests = "^2.31.0"
+fastapi-filter = "^1.0.0"
+fastapi-pagination = "^0.12.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
