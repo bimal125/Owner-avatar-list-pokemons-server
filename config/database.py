@@ -7,7 +7,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', 'develop')
 postgres_user = os.environ.get('POSTGRES_USER', 'postgres')
 postgres_password = os.environ.get('POSTGRES_PASSWORD', 'postgresqlpwd')
 postgres_host = os.environ.get('POSTGRES_HOST', 'db')
